@@ -55,7 +55,36 @@ fn main() {
     w.write_sentence_without_checksum("$GPGG");
     w.write_payload("$GPGG");
     w.write_text_sentence("Following 1 sentence has no fields");
-    w.write_sentence_without_checksum("$GPGGA,");
+    w.write_sentence_without_checksum("$GPGLC,");
+
+    w.write_text_sentence("Following 1 sentence is a valid GGA message");
+    w.write_sentence_without_checksum("$GNGGA,001043.00,4404.14036,N,12118.85961,W,1,12,0.98,1113.0,M,-21.3,M,123,45");
+    w.write_text_sentence("Following 1 sentence is a valid GGA message with only empty fields");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,,,,,,");
+    w.write_text_sentence("Following 1 sentence is a valid GGA message without second fraction");
+    w.write_sentence_without_checksum("$GNGGA,120043,4404.14036,N,12118.85961,W,1,12,0.98,1113.0,M,-21.3,M,123,45");
+    w.write_text_sentence("Following 1 sentence is a valid GGA message without lat/long minute fraction");
+    w.write_sentence_without_checksum("$GNGGA,120043,4404,N,12118,W,1,12,0.98,1113.0,M,-21.3,M,123,0045");
+    w.write_text_sentence("Following 1 sentence is a incorrect GGA message without lat/long direction");
+    w.write_sentence_without_checksum("$GNGGA,120043,4404,,12118,,1,12,0.98,1113.0,M,-21.3,M,123,0045");
+    w.write_text_sentence("Following 1 sentence is a incorrect GGA message invalid units");
+    w.write_sentence_without_checksum("$GNGGA,001043.00,4404.14036,N,12118.85961,W,1,12,0.98,1113.0,Z,-21.3,Z,123,45");
+    w.write_text_sentence("Following 1 sentence is a incorrect GGA message invalid quality");
+    w.write_sentence_without_checksum("$GNGGA,001043.00,4404.14036,N,12118.85961,W,9,12,0.98,1113.0,M,-21.3,M,123,45");
+    w.write_text_sentence("Following 13 sentence is a incorrect GGA message missing fields");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,,");
+    w.write_sentence_without_checksum("$GNGGA,,,");
+    w.write_sentence_without_checksum("$GNGGA,,");
+    w.write_sentence_without_checksum("$GNGGA,");
     
     w.write_text_sentence("Following 1 sentence is a valid ZDA message");
     w.write_sentence_without_checksum("$GPZDA,225239.91,14,11,2015,+01,00");
