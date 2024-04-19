@@ -61,7 +61,7 @@ fn main() {
     w.write_sentence_without_checksum("$INDPT,2.3,0.0,300");
     w.write_text_sentence("Following 1 sentence is a valid GGA message with only empty fields");
     w.write_sentence_without_checksum("$INDPT,,,");
-    w.write_text_sentence("Following 13 sentence is a incorrect DPT message missing fields");
+    w.write_text_sentence("Following sentences is a incorrect DPT message missing fields");
     w.write_sentence_without_checksum("$INDPT,,");
     w.write_sentence_without_checksum("$INDPT,");
 
@@ -93,7 +93,36 @@ fn main() {
     w.write_sentence_without_checksum("$GNGGA,,,");
     w.write_sentence_without_checksum("$GNGGA,,");
     w.write_sentence_without_checksum("$GNGGA,");
-    
+
+    w.write_text_sentence("Following 1 sentence is a valid GLL message");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,A");
+    w.write_text_sentence("Following 4 sentence is a valid GLL message with several FAA mode");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,S");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,C");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,F");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,N");
+    w.write_text_sentence("Following 1 sentence is a valid GLL message with status = void");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,V,A");
+    w.write_text_sentence("Following 1 sentence is a valid GLL message with only empty fields");
+    w.write_sentence_without_checksum("$GNGLL,,,,,,,");
+    w.write_text_sentence("Following 1 sentence is a valid GLL message without second fraction");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037,A,A");
+    w.write_text_sentence("Following 1 sentence is a valid GLL message without lat/long minute fraction");
+    w.write_sentence_without_checksum("$GNGLL,4404,N,12118,W,001037.00,A,A");
+    w.write_text_sentence("Following 1 sentence is a incorrect GLL message without lat/long direction");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,,12118.85993,,001037.00,A,A");
+    w.write_text_sentence("Following 1 sentence is a incorrect GLL message invalid status");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,Z,A");
+    w.write_text_sentence("Following 1 sentence is a incorrect GLL message invalid FAA mode");
+    w.write_sentence_without_checksum("$GNGLL,4404.14012,N,12118.85993,W,001037.00,A,Z");
+    w.write_text_sentence("Following sentences is a incorrect GLL message missing fields");
+    w.write_sentence_without_checksum("$GNGLL,,,,,,");
+    w.write_sentence_without_checksum("$GNGLL,,,,,");
+    w.write_sentence_without_checksum("$GNGLL,,,,");
+    w.write_sentence_without_checksum("$GNGLL,,,");
+    w.write_sentence_without_checksum("$GNGLL,,");
+    w.write_sentence_without_checksum("$GNGLL,");
+        
     w.write_text_sentence("Following 1 sentence is a valid ZDA message");
     w.write_sentence_without_checksum("$GPZDA,225239.91,14,11,2015,+01,00");
     w.write_text_sentence("Following 1 sentence is a valid ZDA message with only empty fields");
