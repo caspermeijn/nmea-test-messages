@@ -57,6 +57,14 @@ fn main() {
     w.write_text_sentence("Following 1 sentence has no fields");
     w.write_sentence_without_checksum("$GPGLC,");
 
+    w.write_text_sentence("Following 1 sentence is a valid DPT message");
+    w.write_sentence_without_checksum("$INDPT,2.3,0.0,300");
+    w.write_text_sentence("Following 1 sentence is a valid GGA message with only empty fields");
+    w.write_sentence_without_checksum("$INDPT,,,");
+    w.write_text_sentence("Following 13 sentence is a incorrect DPT message missing fields");
+    w.write_sentence_without_checksum("$INDPT,,");
+    w.write_sentence_without_checksum("$INDPT,");
+
     w.write_text_sentence("Following 1 sentence is a valid GGA message");
     w.write_sentence_without_checksum("$GNGGA,001043.00,4404.14036,N,12118.85961,W,1,12,0.98,1113.0,M,-21.3,M,123,45");
     w.write_text_sentence("Following 1 sentence is a valid GGA message with only empty fields");
