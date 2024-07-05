@@ -69,15 +69,17 @@ fn main() {
     w.write_sentence_without_checksum("$INDPT,,");
     w.write_sentence_without_checksum("$INDPT,");
 
-    w.write_text_sentence("Following 1 sentence is a valid DPT message");
+    w.write_text_sentence("Following 1 sentence is a valid HDT message");
     w.write_sentence_without_checksum("$GPHDT,274.07,T");
-    w.write_text_sentence("Following 1 sentence is a valid ROT message without fraction");
+    w.write_text_sentence("Following 1 sentence is a valid HDT message without fraction");
     w.write_sentence_without_checksum("$GPHDT,274,T");
-    w.write_text_sentence("Following 1 sentence is a valid ROT message with long fraction");
+    w.write_text_sentence("Following 1 sentence is a valid HDT message with long fraction");
     w.write_sentence_without_checksum("$GPHDT,274.12345678,T");
-    w.write_text_sentence("Following 1 sentence is a valid GGA message with only empty fields");
+    w.write_text_sentence("Following 1 sentence is a valid HDT message with only empty fields");
     w.write_sentence_without_checksum("$GPHDT,,");
-    w.write_text_sentence("Following sentences is a incorrect DPT message missing fields");
+    w.write_text_sentence("Following 1 sentence is a invalid HDT message with incorrect unit");
+    w.write_sentence_without_checksum("$GPHDT,274.07,Z");
+    w.write_text_sentence("Following sentences is a incorrect HDT message missing fields");
     w.write_sentence_without_checksum("$GPHDT,");
 
     w.write_text_sentence("Following 1 sentence is a valid GGA message");
