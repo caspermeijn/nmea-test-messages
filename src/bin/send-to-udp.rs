@@ -160,6 +160,21 @@ fn main() {
     w.write_sentence_without_checksum("$GNGLL,,");
     w.write_sentence_without_checksum("$GNGLL,");
 
+    w.write_text_sentence("Following 1 sentence is a valid GST message");
+    w.write_sentence_without_checksum("$GPGST,182141.000,15.5,15.3,7.2,21.8,0.9,0.5,0.8");
+    w.write_text_sentence("Following 1 sentence is a GST message without fraction");
+    w.write_sentence_without_checksum("$GPGST,182141,15,15,7,21,0,0,0");
+    w.write_text_sentence("Following 1 sentence is valid GST message with empty fields");
+    w.write_sentence_without_checksum("$GPGST,,,,,,,,");
+    w.write_text_sentence("Following sentences are incorrect GST message missing fields");
+    w.write_sentence_without_checksum("$GPGST,,,,,,,");
+    w.write_sentence_without_checksum("$GPGST,,,,,,");
+    w.write_sentence_without_checksum("$GPGST,,,,,");
+    w.write_sentence_without_checksum("$GPGST,,,,");
+    w.write_sentence_without_checksum("$GPGST,,,");
+    w.write_sentence_without_checksum("$GPGST,,");
+    w.write_sentence_without_checksum("$GPGST,");
+
     w.write_text_sentence("Following 1 sentence is a valid ROT message");
     w.write_sentence_without_checksum("$GPROT,35.6,A");
     w.write_text_sentence("Following 1 sentence is a valid ROT message with status = void");
@@ -178,7 +193,9 @@ fn main() {
     w.write_text_sentence("Following sentence is valid VBW without fraction");
     w.write_sentence_without_checksum("$GPVBW,1,2,A,3,4,A,5,A,6,A");
     w.write_text_sentence("Following sentence is valid VBW with long fraction");
-    w.write_sentence_without_checksum("$GPVBW,1.1234567,2.1234567,A,3.1234567,4.1234567,A,5.1234567,A,6.1234567,A");
+    w.write_sentence_without_checksum(
+        "$GPVBW,1.1234567,2.1234567,A,3.1234567,4.1234567,A,5.1234567,A,6.1234567,A",
+    );
     w.write_text_sentence("Following sentence is valid VBW with only empty fields");
     w.write_sentence_without_checksum("$GPVBW,,,,,,,,,,");
     w.write_text_sentence("Following sentence is correct VBW message with invalid values");
